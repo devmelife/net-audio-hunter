@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "NetAudio Hunter",
+  "version": "1.0",
+  "description": "Captures .aac and audio files from network traffic.",
+  "permissions": [
+    "webRequest",
+    "storage",
+    "tabs",
+    "downloads"
+  ],
+  "host_permissions": [
+    "*://*.artlist.io/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "NetAudio Hunter"
+  }
+}
