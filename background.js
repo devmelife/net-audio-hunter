@@ -1,7 +1,6 @@
 // background.js
 chrome.webRequest.onHeadersReceived.addListener(
   function(details) {
-    if (!details.initiator || !details.initiator.includes('artlist.io')) return;
     chrome.storage.local.get(['isCapturing'], (res) => {
       if (res.isCapturing === false) return; 
 

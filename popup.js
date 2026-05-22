@@ -76,18 +76,4 @@ document.getElementById('clear').onclick = () => {
 };
 
 chrome.runtime.onMessage.addListener(render);
-
-document.addEventListener('DOMContentLoaded', () => {
-  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-    const url = tabs[0]?.url || '';
-    const isArtlist = url.includes('artlist.io');
-    if (!isArtlist) {
-      document.getElementById('toggle').disabled = true;
-      document.getElementById('list').innerHTML = '<div class="empty">&#9888; Only works on artlist.io</div>';
-      document.getElementById('badge').innerText = 'DISABLED';
-      document.getElementById('badge').className = 'status-badge';
-    } else {
-      render();
-    }
-  });
-});
+document.addEventListener('DOMContentLoaded', render);
